@@ -514,12 +514,16 @@ function updatePositions() {
 
     // Changed method to getElementsByClassName for performance
     // Created a len variable for items.length to increase performance
-    // Created the phase variable outside of the for loop.
+    // Created the phase variable outside of the for loop
+    // Created the 'top' variable outside of the for loop
+    // Updated the for loop to call the 'top' variable in the 'phase' value assignment statement
     var items = document.getElementsByClassName('mover');
     var len = items.length;
+    var top = document.body.scrollTop/1250;
     var phase;
+    
     for (var i = 0; i < len; i++) {
-        phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+        phase = Math.sin(top + (i % 5));
         items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
     }
 
@@ -542,13 +546,14 @@ window.addEventListener('scroll', updatePositions);
 // Moved query selector for movingPizzas1 outside of the for loop and changed to
 // getElementsByID method
 // Decleared elem variable outside of the for loop
-// Created rows variable which gets the height of the current window
+// Created rows variable which gets the height of the current window / s
 // Reduced the number of pizzas by creating the pizzas variable which is a calculation of rows * cols
+// Moved 's' variable above rows where it was being called.
 document.addEventListener('DOMContentLoaded', function () {
     var cols = 8;
-    var rows = window.screen.height;
-    var pizzas = rows * cols;
     var s = 256;
+    var rows = window.screen.height / s;
+    var pizzas = rows * cols;
     var elem;
     var movingPizzas = document.getElementById("movingPizzas1");
     
@@ -560,9 +565,7 @@ document.addEventListener('DOMContentLoaded', function () {
         elem.style.height = "100px";
         elem.style.width = "73.333px";
         elem.basicLeft = (i % cols) * s;
-        alert("basicLeft = " + elem.basicLeft);
         elem.style.top = (Math.floor(i / cols) * s) + 'px';
-        alert("styleTop = " + elem.style.top);
         movingPizzas.appendChild(elem);
     }
     updatePositions();

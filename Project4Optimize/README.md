@@ -26,5 +26,8 @@ Created new movingPizzas variable outside of the for loop in the event listener,
 Declared the phase variable outsite of the 'for' loop on the updatePositions function.
 Created a len variable for the items.length in the updatePosition to increase performance.
 Declared the elem variable outside of the 'for' loop on the event listener for performance.
-Created rows variable which gets the height of the current window in the event listener.
+Created rows variable which gets the height of the current window  / the s variable in the event listener.
 Reduced the number of pizzas by creating the pizzas variable which is a calculation of rows * cols.
+Moved 's' variable above the other variables that were calling it on the event listener function.
+Created the 'top' variable outside of the for loop.
+Updated the for loop to call the 'top' variable in the 'phase' value assignment statement

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>William Sisson Map Project</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:100,300" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- Google Map -->
+    <div id="map-canvas"></div>
+
+    <!-- Main Content -->
+    <div class="wrapper">
+        <div class="container-fluid">
+
+            <div id="titleRow" class="col-md-12 row">
+                <h1>Dallas TX Areas of Interest</h1>
+            </div>
+
+            <div class="row search-area">
+                <div class="col-md-4 col-xs-10 col-sm-10 row">
+                    <h2><span><input data-bind="textInput: searchString" placeholder="Filter Places List"></span></h2>
+                    <ul class="list" data-bind="foreach: locations">
+                        <li class="listElement">
+                            <h5><div data-bind="text: title, click: showMe"></div></h5>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type='text/javascript' src='js/knockout-3.3.0.js'></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOd-0Rww9iOpRIPI9ois8DQP7OLcbEL6o&callback=initMap" onerror="errorHandling()"></script>
+
+</body>
+
+</html>
